@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from tkinter import *
 from user_info import User, users
 
@@ -49,3 +50,8 @@ def get_compatibility(userA, userB):
     print(mbti_compatibility_matrix[mbti_matrix_value[userA.mbti_test]][mbti_matrix_value[userB.mbti_test]])
 
 get_compatibility(users[0], users[1])
+=======
+from pages.start_window import *
+
+start_window.mainloop()
+>>>>>>> d8181a7 (Initial commit)
