@@ -24,4 +24,4 @@ class User_Login:
 users = []
 
 def new_user(information):
-    user = User(len(users), information, None, None, None, None)
+    user = User(len(users), User_Login(information.username, information.password), None, None, None, None)
