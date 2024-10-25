@@ -21,7 +21,7 @@ def widget_unhover(widget):
     widget.config(bg = background_color)
 
 login_prohibited_characters = [
-    ' ', "'", '"',
+    ' ', "'", '"', '\\', '(', ')', '[', ']'
 ]
-login_minimum_length = 6
+login_minimum_length = 2
 login_maximum_length = 24

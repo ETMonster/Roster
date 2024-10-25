@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 from constants import *
 import user_info
 
@@ -9,7 +10,6 @@ def pack_page():
     roster_title.grid(row = 2, column = 0)
 
     header.pack()
-
 
     subtitle.grid(row = 0, column = 0)
 
@@ -37,11 +37,11 @@ def pack_page():
 
 def invalid_login(reason, action):
     if reason == 'Character':
-        print('You cannot use spaces or quotation marks in your username or password.')
+        messagebox.showinfo(title = 'Error', message = f'You cannot use the characters {login_prohibited_characters} in your username or password.')
     elif reason == 'Information':
-        print('Username or password is incorrect.')
+        messagebox.showinfo(title = 'Error', message = 'Username or password is incorrect.')
     elif reason == 'Length':
-        print(f'Your username and password must be a minimum of {login_minimum_length} and a maximum of {login_maximum_length} characters long.')
+        messagebox.showinfo(title = 'Error', message = f'Your username and password must be a minimum of {login_minimum_length} and a maximum of {login_maximum_length} characters long.')
 
 def attempt_login():
     attempt_login_information = user_info.User_Login(login_username_entry.get(), login_password_entry.get())
@@ -58,7 +58,7 @@ def attempt_login():
 
     for user in user_info.users:
         if attempt_login_information.username == user.login_information.username and attempt_login_information.password == user.login_information.password:
-            print(f'Successfully logged in to user {user.id}')
+            user_info.login(user.id)
             return
         else:
             invalid_login('Information', 'Login')
@@ -77,7 +77,7 @@ def attempt_signup():
             invalid_login('Character', 'Login')
             return
 
-    user_info.new_user(attempt_signup_information)
+    user_info.create_new_user(attempt_signup_information)
 
 # Window
 start_window = Tk()

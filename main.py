@@ -1,4 +1,6 @@
-import pages.start_window as start
+from pages.start_window import start_window
+from user_info import load_users
 
-start.start_window.mainloop()
+load_users()
 
+start_window.mainloop()

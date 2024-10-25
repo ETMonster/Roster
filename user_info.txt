@@ -1,1 +1,1 @@
-0, (Johnny, password), John, Smith, (Male, 34, ESTJ, [Dune, Jumanji, Interstellar], Rock, [Chess, Gaming, Biking]
+0,John,Smith,images/profiles/placeholder,(admin,password),{Male,34,ESTJ,Rock,[Dune,Jumanji,Interstellar],[Chess,Gaming,Biking]}
