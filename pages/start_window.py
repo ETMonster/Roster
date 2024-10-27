@@ -64,8 +64,10 @@ def attempt_login():
             invalid_login('Information', 'Login')
             return
 
+    start_window.destroy()
+
 def attempt_signup():
-    attempt_signup_information = user_info.User_Login(login_username_entry.get(), login_password_entry.get())
+    attempt_signup_information = user_info.User_Login(signup_username_entry.get(), signup_password_entry.get())
 
     if (len(attempt_signup_information.username) < login_minimum_length or len(attempt_signup_information.password) < login_minimum_length
     or len(attempt_signup_information.username) > login_maximum_length or len(attempt_signup_information.password) > login_maximum_length):
@@ -77,7 +79,7 @@ def attempt_signup():
             invalid_login('Character', 'Login')
             return
 
-    user_info.create_new_user(attempt_signup_information)
+    start_window.destroy()
 
 # Window
 start_window = Tk()
@@ -136,7 +138,7 @@ signup_password_entry = Entry(master = signup, width = 24, font = (body_font, bo
 
 signup_submit = Button(text = 'Submit',
                       master = body, font = (body_font, body_font_size), bg = background_color, bd = 0, anchor = 'center',
-                      cursor = 'hand2', activebackground = primary_color)
+                      cursor = 'hand2', activebackground = primary_color, command = attempt_signup)
 
 
 # Configure hover

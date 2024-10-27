@@ -1,0 +1,28 @@
+[
+  {
+    "id": 0,
+    "first_name": "Roster",
+    "last_name": "Admin",
+    "profile_picture_path": "/images/profiles/admin.png",
+    "login_information": {
+      "username": "admin",
+      "password": "password"
+    },
+    "compatability_attributes": {
+      "gender": "Male",
+      "age": "30",
+      "mbti_test": "INTJ",
+      "favorite_music": "Rock",
+      "favorite_movies": [
+        "Inception",
+        "The Matrix",
+        "Interstellar"
+      ],
+      "hobbies": [
+        "Reading",
+        "Cycling",
+        "Talking"
+      ]
+    }
+  }
+]
