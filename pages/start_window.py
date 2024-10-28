@@ -3,6 +3,8 @@ from tkinter import messagebox
 from constants import *
 import user_info
 
+def callback(user_action, login_information):
+    return user_action, login_information
 
 # Page functionality
 def pack_page():
@@ -37,11 +39,13 @@ def pack_page():
 
 def invalid_login(reason, action):
     if reason == 'Character':
-        messagebox.showinfo(title = 'Error', message = f'You cannot use the characters {login_prohibited_characters} in your username or password.')
+        messagebox.showinfo(title = 'Error', message = f'You cannot use the characters {', '.join([f'"  {x}  "' for x in login_prohibited_characters])} in your username or password.')
     elif reason == 'Information':
         messagebox.showinfo(title = 'Error', message = 'Username or password is incorrect.')
     elif reason == 'Length':
         messagebox.showinfo(title = 'Error', message = f'Your username and password must be a minimum of {login_minimum_length} and a maximum of {login_maximum_length} characters long.')
+    elif reason == 'Exists':
+        messagebox.showinfo(title = 'Error', message = f'Your desired username is already in use.')
 
 def attempt_login():
     attempt_login_information = user_info.User_Login(login_username_entry.get(), login_password_entry.get())
@@ -77,6 +81,11 @@ def attempt_signup():
     for character in login_prohibited_characters:
         if character in attempt_signup_information.username or character in attempt_signup_information.password:
             invalid_login('Character', 'Login')
+            return
+
+    for user in user_info.users:
+        if attempt_signup_information.username == user.login_information.username:
+            invalid_login('Exists', 'Signup')
             return
 
     start_window.destroy()

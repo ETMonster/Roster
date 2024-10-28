@@ -1,11 +1,11 @@
-from pages.start_window import start_window
+import pages.window_manager as window_manager
 import user_info
 from constants import *
 
 user_info.load_users()
 
 def start_roster():
-    start_window.mainloop()
+    window_manager.start_window.create_window()
     #user_info.create_new_user(attempt_signup_information)
 
 start_roster()
