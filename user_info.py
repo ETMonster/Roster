@@ -83,18 +83,25 @@ def load_users():
 
             users.append(user)
 
-        write_users()
-
 def write_users():
     user_data_dictionary = [user.to_dictionary() for user in users]
 
     with open('user_info.json', 'w') as file:
         json.dump(user_data_dictionary, file, indent = 2)
 
-def login(user_id):
+def login(user):
     global current_user
 
-    user_id = int(user_id)
+    print(f'Logged in to user {user.id}')
+    current_user = user
 
-    print(f'Logged in to user {user_id}')
-    current_user = users[user_id]
+def signup(user_login):
+    global users
+    global current_user
+
+    new_user = User(len(users), None, None, None, user_login, User_Attributes(None, None, None, None, None, None))
+
+    users.append(new_user)
+    current_user = new_user
+
+    write_users()

@@ -3,8 +3,7 @@ from tkinter import messagebox
 from constants import *
 import user_info
 
-def callback(user_action, login_information):
-    return user_action, login_information
+callback = ['Action', user_info.User_Login('Username', 'Password')]
 
 # Page functionality
 def pack_page():
@@ -37,7 +36,7 @@ def pack_page():
 
     body.pack()
 
-def invalid_login(reason, action):
+def invalid_login(reason):
     if reason == 'Character':
         messagebox.showinfo(title = 'Error', message = f'You cannot use the characters {', '.join([f'"  {x}  "' for x in login_prohibited_characters])} in your username or password.')
     elif reason == 'Information':
@@ -48,55 +47,61 @@ def invalid_login(reason, action):
         messagebox.showinfo(title = 'Error', message = f'Your desired username is already in use.')
 
 def attempt_login():
+    global callback
+
     attempt_login_information = user_info.User_Login(login_username_entry.get(), login_password_entry.get())
 
     if (len(attempt_login_information.username) < login_minimum_length or len(attempt_login_information.password) < login_minimum_length
     or len(attempt_login_information.username) > login_maximum_length or len(attempt_login_information.password) > login_maximum_length):
-        invalid_login('Length', 'Login')
+        invalid_login('Length')
         return
 
     for character in login_prohibited_characters:
         if character in attempt_login_information.username or character in attempt_login_information.password:
-            invalid_login('Character', 'Login')
+            invalid_login('Character')
             return
 
     for user in user_info.users:
+        print(vars(user))
         if attempt_login_information.username == user.login_information.username and attempt_login_information.password == user.login_information.password:
-            user_info.login(user.id)
-            return
-        else:
-            invalid_login('Information', 'Login')
+            callback = ['Login', user]
+
+            window.destroy()
             return
 
-    start_window.destroy()
+    invalid_login('Information')
+    return
 
 def attempt_signup():
+    global callback
+
     attempt_signup_information = user_info.User_Login(signup_username_entry.get(), signup_password_entry.get())
 
     if (len(attempt_signup_information.username) < login_minimum_length or len(attempt_signup_information.password) < login_minimum_length
     or len(attempt_signup_information.username) > login_maximum_length or len(attempt_signup_information.password) > login_maximum_length):
-        invalid_login('Length', 'Signup')
+        invalid_login('Length')
         return
 
     for character in login_prohibited_characters:
         if character in attempt_signup_information.username or character in attempt_signup_information.password:
-            invalid_login('Character', 'Login')
+            invalid_login('Character')
             return
 
     for user in user_info.users:
         if attempt_signup_information.username == user.login_information.username:
-            invalid_login('Exists', 'Signup')
+            invalid_login('Exists')
             return
 
-    start_window.destroy()
+    callback = ['Signup', attempt_signup_information]
+    window.destroy()
 
 # Window
-start_window = Tk()
-start_window.geometry(f'{window_x}x{window_y}')
-start_window.title('Roster')
+window = Tk()
+window.geometry(f'{window_x}x{window_y}')
+window.title('Roster')
 
-header = Frame(master = start_window, width = 512)
-body = Frame(master = start_window, width = 512)
+header = Frame(master = window, width = 512)
+body = Frame(master = window, width = 512)
 
 # Header
 roster_logo_image = PhotoImage(master = header, file = 'images/logo_256.png')

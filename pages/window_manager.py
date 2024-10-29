@@ -1,14 +1,14 @@
 import pages.start_window
+import pages.onboard_window
 
 class Window:
-    def __init__(self, file, return_value):
+    def __init__(self, file):
         self.file = file
-        self.return_value = return_value
 
-    def create_window(self):
-        self.file.mainloop()
+    def initiate_window(self):
+        self.file.window.mainloop()
 
-    def set_return_value(self, value):
-        self.return_value = value
+        return self.file.callback
 
-start_window = Window(pages.start_window, """Return value here""")
+start_window = Window(pages.start_window)
+onboard_window = Window(pages.onboard_window)
