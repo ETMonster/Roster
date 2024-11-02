@@ -1,16 +1,27 @@
 import pages.window_manager as window_manager
+from tkinter import *
 import user_info
+from constants import *
+
+user_info.load_users()
+
+window = Tk()
+window.geometry(f'{window_x}x{window_y}')
+window.title('Roster')
+
+class callback:
+    @staticmethod
+    def signup(signup_information):
+        user_info.signup(signup_information)
+        window_manager.onboard_window.initiate_window(window, callback)
+
+    @staticmethod
+    def login(user):
+        user_info.login(user)
 
 def start_roster():
-    user_action = window_manager.start_window.initiate_window()
-
-    if user_action[0] == 'Login':
-        user_info.login(user_action[1])
-    elif user_action[0] == 'Signup':
-        user_info.signup(user_action[1])
-        onboarding()
-
-def onboarding():
-    user_attributes = window_manager.onboard_window.initiate_window()
+    window_manager.start_window.initiate_window(window, callback)
 
 start_roster()
+
+window.mainloop()
