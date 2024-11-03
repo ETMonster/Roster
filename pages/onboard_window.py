@@ -13,23 +13,30 @@ def create_widgets(window, callback):
         title.grid(row = 1, column = 0)
         title_username.grid(row = 2, column = 0)
 
-        horizontal_line.grid(row = 3, column = 0, pady = 20)
+        horizontal_line.grid(row = 3, column = 0, pady = (30, 0))
 
         header.pack()
 
-        first_name_label.grid(row = 1, column = 0)
+        first_name_label.grid(row = 1, column = 0, padx = (0, 5))
+        last_name_label.grid(row = 2, column = 0, padx = (0, 5))
         first_name_entry.grid(row = 1, column = 1)
-        last_name_label.grid(row = 2, column = 0)
         last_name_entry.grid(row = 2, column = 1)
 
         name.grid(row = 0, column = 0)
 
         profile_picture.grid(row = 0, column = 0)
-        upload_profile_button.grid(row = 1, column = 0)
+        upload_profile_button.grid(row = 1, column = 0, pady = (10, 0))
 
-        upload.grid(row = 1, column = 0, pady = 20)
+        upload.grid(row = 1, column = 0, pady = (30, 0))
 
-        body.pack(pady = 15)
+        body.pack(pady = (30, 0))
+
+        canvas.create_window((window_x // 2, 0), window = canvas_frame, anchor = 'n')
+
+        canvas.pack(side = LEFT, fill = BOTH, expand = True)
+        scrollbar.pack(side = RIGHT, fill = Y)
+
+        main_frame.pack(fill = BOTH)
 
     def upload_profile_picture():
         # Open file dialog to select an image file
@@ -68,10 +75,15 @@ def create_widgets(window, callback):
 
             user_info.current_user.profile_picture = destination_file_path
 
-    canvas = Canvas(master = window)
+    main_frame = Frame(master = window, width = window_x)
 
-    header = Frame(master = canvas, width = 512)
-    body = Frame(master = canvas, width = 512)
+    canvas = Canvas(master = main_frame, height = window_y)
+    scrollbar = Scrollbar(master = main_frame, orient = VERTICAL, command = canvas.yview)
+
+    canvas_frame = Frame(master = canvas)
+
+    header = Frame(master = canvas_frame)
+    body = Frame(master = canvas_frame)
 
     # Header
     roster_logo_image = PhotoImage(file = 'images/logo_256.png')
@@ -112,5 +124,16 @@ def create_widgets(window, callback):
     upload_profile_button = Button(text='Upload profile picture',
                           master=upload, font=(body_font, body_font_size), bg=background_color, bd=0, anchor='center',
                           cursor='hand2', activebackground=primary_color, command=upload_profile_picture)
+
+    # Configure actions
+
+    canvas.configure(yscrollcommand = scrollbar.set)
+    canvas.bind('<Configure>', lambda event: canvas.configure(scrollregion = canvas.bbox('all')))
+
+    window.bind_all("<MouseWheel>", lambda event: on_mousewheel(event, canvas))
+
+    upload_profile_button.bind('<Enter>', lambda button: widget_hover(upload_profile_button))
+
+    upload_profile_button.bind('<Leave>', lambda button: widget_unhover(upload_profile_button))
 
     pack_page()

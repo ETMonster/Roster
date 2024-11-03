@@ -30,6 +30,9 @@ def widget_hover(widget):
 def widget_unhover(widget):
     widget.config(bg = background_color)
 
+def on_mousewheel(event, canvas):
+    canvas.yview_scroll(-1 * int(event.delta / 120), 'units')
+
 def throw_error(reason):
     if reason == 'Character':
         messagebox.showinfo(title='Error', essage=f'Your username or password contains prohibited characters.')
