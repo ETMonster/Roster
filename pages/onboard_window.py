@@ -38,7 +38,7 @@ def create_widgets(window, callback):
 
         main_frame.pack(fill = BOTH)
 
-    def upload_profile_picture():
+    def upload_profile_picture(profile_picture_label):
         # Open file dialog to select an image file
         system_file_path = filedialog.askopenfilename(
             title = 'Select a Profile Picture',
@@ -74,6 +74,14 @@ def create_widgets(window, callback):
                 return None
 
             user_info.current_user.profile_picture = destination_file_path
+
+            _profile_picture_image = Image.open(destination_file_path)
+            _profile_picture_image.thumbnail(size = (256, 256))
+
+            _profile_picture_tkinter_image = ImageTk.PhotoImage(_profile_picture_image)
+
+            profile_picture_label.configure(image = profile_picture_tkinter_image)
+            profile_picture_label.photo = profile_picture_tkinter_image
 
     main_frame = Frame(master = window, width = window_x)
 
@@ -123,7 +131,7 @@ def create_widgets(window, callback):
 
     upload_profile_button = Button(text='Upload profile picture',
                           master=upload, font=(body_font, body_font_size), bg=background_color, bd=0, anchor='center',
-                          cursor='hand2', activebackground=primary_color, command=upload_profile_picture)
+                          cursor='hand2', activebackground=primary_color, command = lambda: upload_profile_picture(profile_picture))
 
     # Configure actions
 
