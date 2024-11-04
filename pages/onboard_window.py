@@ -66,6 +66,9 @@ def create_widgets(window, callback):
                 updated_file_name = user_info.current_user.login_information.username + file_extension
                 updated_file_name = os.path.join(profile_destination, updated_file_name)
 
+                if os.path.exists(updated_file_name):
+                    os.remove(updated_file_name)
+
                 os.rename(destination_file_path, updated_file_name)
 
                 destination_file_path = updated_file_name
@@ -73,15 +76,16 @@ def create_widgets(window, callback):
                 throw_error('BadProfile')
                 return None
 
-            user_info.current_user.profile_picture = destination_file_path
+            user_info.current_user.profile_picture_path = destination_file_path
+            user_info.write_users()
 
             _profile_picture_image = Image.open(destination_file_path)
-            _profile_picture_image.thumbnail(size = (256, 256))
+            _profile_picture_image = prepare_image(_profile_picture_image, (256, 256))
 
             _profile_picture_tkinter_image = ImageTk.PhotoImage(_profile_picture_image)
 
-            profile_picture_label.configure(image = profile_picture_tkinter_image)
-            profile_picture_label.photo = profile_picture_tkinter_image
+            profile_picture_label.configure(image = _profile_picture_tkinter_image)
+            profile_picture_label.photo = _profile_picture_tkinter_image
 
     main_frame = Frame(master = window, width = window_x)
 

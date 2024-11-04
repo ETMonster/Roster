@@ -101,7 +101,7 @@ def signup(user_login):
 
     new_user = User(len(users), None, None, None, user_login, User_Attributes(None, None, None, None, None, None))
 
-    #users.append(new_user)
+    users.append(new_user)
     current_user = new_user
 
     write_users()

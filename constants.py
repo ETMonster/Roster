@@ -1,4 +1,5 @@
 from tkinter import messagebox
+from PIL import Image, ImageTk
 
 window_x = 800 #px
 window_y = 800 #px
@@ -43,4 +44,16 @@ def throw_error(reason):
     elif reason == 'Exists':
         messagebox.showinfo(title='Error', message=f'Your desired username is already in use.')
     elif reason == 'BadProfile':
-        messagebox.showinfo(title='Error', message='There was an unexpected error while uploading your profile picture."')
+        messagebox.showinfo(title='Error', message='There was an unexpected error while uploading your profile picture.')
+
+
+def prepare_image(image, target_size = (256, 256)):
+    width, height = image.size
+    min_dimension = min(width, height)
+
+    left = (width - min_dimension) / 2
+    top = (height - min_dimension) / 2
+    right = (width + min_dimension) / 2
+    bottom = (height + min_dimension) / 2
+
+    return image.crop((left, top, right, bottom)).resize(target_size, Image.LANCZOS)
