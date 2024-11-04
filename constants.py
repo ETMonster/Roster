@@ -24,6 +24,9 @@ login_minimum_length = 2
 login_maximum_length = 24
 
 profile_destination = 'images/profiles'
+profile_picture_extensions = [
+    '*.png', '*.jpg', '*.jpeg'
+]
 
 def widget_hover(widget):
     widget.config(bg = secondary_color)

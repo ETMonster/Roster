@@ -42,11 +42,10 @@ def create_widgets(window, callback):
         # Open file dialog to select an image file
         system_file_path = filedialog.askopenfilename(
             title = 'Select a Profile Picture',
-            filetypes=[('Image Files', '*.png;*.jpg;*.jpeg;')]
+            filetypes=[('Image Files', ';'.join([x for x in profile_picture_extensions]))]
         )
 
         if system_file_path:
-            # Open the image and copy it over to 'profiles' folder
             if not os.path.exists(profile_destination):
                 os.makedirs(profile_destination)
 
@@ -56,22 +55,26 @@ def create_widgets(window, callback):
 
             counter = 1
             while os.path.exists(destination_file_path):
-                # Modify the file name by adding a counter before the extension
                 destination_file_path = os.path.join(profile_destination, f'{file_name} ({counter}){file_extension}')
+                file_name = f'{file_name} ({counter})'
+
                 counter += 1
 
             try:
                 shutil.copy(system_file_path, destination_file_path)
 
-                updated_file_name = user_info.current_user.login_information.username + file_extension
-                updated_file_name = os.path.join(profile_destination, updated_file_name)
+                updated_file_path = user_info.current_user.login_information.username + file_extension
+                updated_file_path = os.path.join(profile_destination, updated_file_path)
 
-                if os.path.exists(updated_file_name):
-                    os.remove(updated_file_name)
+                for file in os.listdir(profile_destination):
+                    if file.startswith(user_info.current_user.login_information.username):
+                        os.remove(os.path.join(profile_destination, file))
+                    else:
+                        continue
 
-                os.rename(destination_file_path, updated_file_name)
+                os.rename(destination_file_path, updated_file_path)
 
-                destination_file_path = updated_file_name
+                destination_file_path = updated_file_path
             except:
                 throw_error('BadProfile')
                 return None
