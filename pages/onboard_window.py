@@ -1,13 +1,25 @@
 from tkinter import *
-from tkinter import filedialog
+from tkinter import filedialog, ttk
 from PIL import Image, ImageTk
 import shutil
 import os
 
 from constants import *
 import user_info
+from user_info import current_user, User_Attributes
 
 def create_widgets(window, callback):
+    combobox_style = ttk.Style(window)
+    combobox_style.theme_use('clam')
+    combobox_style.configure(
+        'TCombobox',
+        foreground = 'black',
+        fieldbackground = background_color,
+        background = background_color,
+        font = body_font,
+        bd = 0
+    )
+
     def pack_page():
         roster_logo.grid(row = 0, column = 0)
         title.grid(row = 1, column = 0)
@@ -28,6 +40,11 @@ def create_widgets(window, callback):
         upload_profile_button.grid(row = 1, column = 0, pady = (10, 0))
 
         upload.grid(row = 1, column = 0, pady = (30, 0))
+
+        gender_label.grid(row = 0, column = 0, padx = (0, 5))
+        gender_dropdown.grid(row = 0, column = 1)
+
+        gender.grid(row = 2, column = 0, pady = (30, 0))
 
         body.pack(pady = (30, 0))
 
@@ -90,6 +107,21 @@ def create_widgets(window, callback):
             profile_picture_label.configure(image = _profile_picture_tkinter_image)
             profile_picture_label.photo = _profile_picture_tkinter_image
 
+    def submit():
+        callback.change_user_information(
+            user_info.User(
+                None,
+                first_name_entry.get(),
+                last_name_entry.get(),
+                None,
+                None,
+                user_info.User_Attributes(
+                    gender_dropdown.get(),
+
+                )
+            )
+        )
+
     main_frame = Frame(master = window, width = window_x)
 
     canvas = Canvas(master = main_frame, height = window_y)
@@ -139,6 +171,22 @@ def create_widgets(window, callback):
     upload_profile_button = Button(text='Upload profile picture',
                           master=upload, font=(body_font, body_font_size), bg=background_color, bd=0, anchor='center',
                           cursor='hand2', activebackground=primary_color, command = lambda: upload_profile_picture(profile_picture))
+
+
+    gender = Frame(master = body)
+
+    gender_label = Label(text = 'Gender',
+                         master = gender, font = (body_font, body_font_size), anchor = 'center')
+    gender_dropdown = ttk.Combobox(state = 'normal', values = gender_options,
+        master = gender, style = 'TCombobox')
+
+
+    gender = Frame(master=body)
+
+    gender_label = Label(text='Gender',
+                         master=gender, font=(body_font, body_font_size), anchor='center')
+    gender_dropdown = ttk.Combobox(state='normal', values=gender_options,
+                                   master=gender, style='TCombobox')
 
     # Configure actions
 

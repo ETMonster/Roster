@@ -1,4 +1,5 @@
 from tkinter import messagebox
+from tkinter import ttk
 from PIL import Image, ImageTk
 
 window_x = 800 #px
@@ -26,6 +27,10 @@ login_maximum_length = 24
 profile_destination = 'images/profiles'
 profile_picture_extensions = [
     '*.png', '*.jpg', '*.jpeg'
+]
+
+gender_options = [
+    'Male', 'Female', 'Prefer not to say',
 ]
 
 def widget_hover(widget):

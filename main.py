@@ -19,6 +19,10 @@ class callback:
     def login(user):
         user_info.login(user)
 
+    @staticmethod
+    def change_user_information(user):
+        pass
+
 def start_roster():
     window_manager.start_window.initiate_window(window, callback)
 
