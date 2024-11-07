@@ -15,8 +15,8 @@ class User:
             "first_name": self.first_name,
             "last_name": self.last_name,
             "profile_picture_path": self.profile_picture_path,
-            "login_information": self.login_information.to_dictionary(),
-            "compatability_attributes": self.compatability_attributes.to_dictionary()
+            "login_information": self.login_information.to_dictionary() if self.login_information is not None else None,
+            "compatability_attributes": self.compatability_attributes.to_dictionary() if self.compatability_attributes is not None else None
         }
 
 class User_Login:
@@ -29,6 +29,10 @@ class User_Login:
             "username": self.username,
             "password": self.password
         }
+
+    def to_object(self, dictionary):
+        self.username = dictionary["username"]
+        self.password = dictionary["password"]
 
 class User_Attributes:
     def __init__(self, gender, preferred_gender, age, mbti_test, favorite_music, favorite_movie, hobby):
@@ -50,6 +54,15 @@ class User_Attributes:
             "favorite_movie": self.favorite_movie,
             "hobby": self.hobby
         }
+
+    def to_object(self, dictionary):
+        self.gender = dictionary["gender"]
+        self.preferred_gender = dictionary["preferred_gender"]
+        self.age = dictionary["age"]
+        self.mbti_test = dictionary["mbti_test"]
+        self.favorite_music = dictionary["favorite_music"]
+        self.favorite_movie = dictionary["favorite_movie"]
+        self.hobby = dictionary["hobby"]
 
 users = []
 current_user = None

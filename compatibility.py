@@ -1,9 +1,9 @@
-class mbti:
+class MBTI:
     def __init__(self, matrix, matrix_indices):
         self.matrix = matrix
         self.matrix_indices = matrix_indices
 
-mbti_compatability = mbti([
+mbti = MBTI([
     [3, 3, 3, 4, 3, 4, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0],  # INFP
     [3, 3, 4, 3, 4, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0],  # ENFP
     [3, 4, 3, 3, 3, 3, 3, 4, 0, 0, 0, 0, 0, 0, 0, 0],  # INFJ

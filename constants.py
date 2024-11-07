@@ -63,7 +63,7 @@ def on_mousewheel(event, canvas):
 
 def throw_error(reason):
     if reason == 'Character':
-        messagebox.showinfo(title='Error', essage=f'Your username or password contains prohibited characters.')
+        messagebox.showinfo(title='Error', message=f'Your username or password contains prohibited characters.')
     elif reason == 'Information':
         messagebox.showinfo(title='Error', message='Username or password is incorrect.')
     elif reason == 'Length':
@@ -72,6 +72,12 @@ def throw_error(reason):
         messagebox.showinfo(title='Error', message=f'Your desired username is already in use.')
     elif reason == 'BadProfile':
         messagebox.showinfo(title='Error', message='There was an unexpected error while uploading your profile picture.')
+    elif reason == 'BadAge':
+        messagebox.showinfo(title='Error', message='Age must be an integer number.')
+    elif reason == 'BadMBTI':
+        messagebox.showinfo(title='Error', message='MBTI personality must be a valid personality according to the MBTI')
+    elif reason == 'NoCharacters':
+        messagebox.showinfo(title='Error', message='All entries must have content.')
 
 
 def prepare_image(image, target_size = (256, 256)):

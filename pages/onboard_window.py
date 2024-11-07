@@ -7,6 +7,7 @@ import os
 from constants import *
 import user_info
 from user_info import current_user, User_Attributes
+from compatibility import mbti
 
 def create_widgets(window, callback):
     combobox_style = ttk.Style(window)
@@ -34,12 +35,12 @@ def create_widgets(window, callback):
         first_name_entry.grid(row = 1, column = 1)
         last_name_entry.grid(row = 2, column = 1)
 
-        name.grid(row = 0, column = 0)
+        name_frame.grid(row = 0, column = 0)
 
         profile_picture.grid(row = 0, column = 0)
         upload_profile_button.grid(row = 1, column = 0, pady = (10, 0))
 
-        upload.grid(row = 1, column = 0, pady = (30, 0))
+        upload_frame.grid(row = 1, column = 0, pady = (30, 0))
 
         age_label.grid(row = 0, column = 0, padx = (0, 5))
         age_entry.grid(row = 0, column = 1)
@@ -137,13 +138,17 @@ def create_widgets(window, callback):
             profile_picture_label.photo = _profile_picture_tkinter_image
 
     def submit():
-        gender = gender_dropdown.get()
-        preferred_gender = preferred_gender_dropdown.get()
-        age = age_entry.get()
-        mbti = mbti_entry.get()
-        favorite_music = music_dropdown.get()
-        favorite_movie = movie_dropdown.get()
-        hobby = hobby_dropdown.get()
+        for entry in entries:
+            if entry.get() == '' or entry.get() is None:
+                throw_error('NoCharacters')
+                return
+
+        if not age_entry.get().isdigit():
+            throw_error('BadAge')
+            return
+        if mbti_entry.get() not in mbti.matrix_indices:
+            throw_error('BadMBTI')
+            return
 
         callback.change_user_information(
             user_info.User(
@@ -154,7 +159,12 @@ def create_widgets(window, callback):
                 None,
                 user_info.User_Attributes(
                     gender_dropdown.get(),
-
+                    preferred_gender_dropdown.get(),
+                    age_entry.get(),
+                    mbti_entry.get(),
+                    music_dropdown.get(),
+                    movie_dropdown.get(),
+                    hobby_dropdown.get()
                 )
             )
         )
@@ -184,29 +194,29 @@ def create_widgets(window, callback):
     horizontal_line.image = horizontal_line_image
 
     # Body
-    name = Frame(master = body)
+    name_frame = Frame(master = body)
 
     first_name_label = Label(text = 'First Name',
-                                 master = name, font = (body_font, body_font_size), anchor = 'center')
+                                 master = name_frame, font = (body_font, body_font_size), anchor = 'center')
     last_name_label = Label(text = 'Last Name',
-                                 master = name, font = (body_font, body_font_size), anchor = 'center')
-    first_name_entry = Entry(master = name, width = 24, font = (body_font, body_font_size),
+                                 master = name_frame, font = (body_font, body_font_size), anchor = 'center')
+    first_name_entry = Entry(master = name_frame, width = 24, font = (body_font, body_font_size),
                                  bg = background_color, bd = 0, highlightthickness = 1, highlightcolor = primary_color)
-    last_name_entry = Entry(master = name, width = 24, font = (body_font, body_font_size),
+    last_name_entry = Entry(master = name_frame, width = 24, font = (body_font, body_font_size),
                                  bg = background_color, bd = 0, highlightthickness = 1, highlightcolor = primary_color)
 
-    upload = Frame(master = body)
+    upload_frame = Frame(master = body)
 
     profile_picture_image = Image.open('images/profiles/admin.jpg')
     profile_picture_image.thumbnail(size = (256, 256))
 
     profile_picture_tkinter_image = ImageTk.PhotoImage(profile_picture_image)
 
-    profile_picture = Label(master = upload, image = profile_picture_tkinter_image, anchor = 'center')
+    profile_picture = Label(master = upload_frame, image = profile_picture_tkinter_image, anchor = 'center')
     profile_picture.image = profile_picture_tkinter_image
 
     upload_profile_button = Button(text = 'Upload profile picture',
-                          master = upload, font = (body_font, body_font_size), bg = background_color, bd = 0, anchor = 'center',
+                          master = upload_frame, font = (body_font, body_font_size), bg = background_color, bd = 0, anchor = 'center',
                           cursor = 'hand2', activebackground = primary_color, command = lambda: upload_profile_picture(profile_picture))
 
     age_frame = Frame(master = body)
@@ -263,6 +273,18 @@ def create_widgets(window, callback):
                                  master=body, font=(body_font, body_font_size), bg=background_color, bd=0, anchor='center',
                                  cursor='hand2', activebackground=primary_color, command=submit)
 
+    entries = [
+        first_name_entry,
+        last_name_entry,
+        gender_dropdown,
+        preferred_gender_dropdown,
+        age_entry,
+        mbti_entry,
+        music_dropdown,
+        movie_dropdown,
+        hobby_dropdown
+    ]
+
     # Configure actions
 
     canvas.configure(yscrollcommand = scrollbar.set)
@@ -271,7 +293,9 @@ def create_widgets(window, callback):
     window.bind_all("<MouseWheel>", lambda event: on_mousewheel(event, canvas))
 
     upload_profile_button.bind('<Enter>', lambda button: widget_hover(upload_profile_button))
+    submit_button.bind('<Enter>', lambda button: widget_hover(submit_button))
 
     upload_profile_button.bind('<Leave>', lambda button: widget_unhover(upload_profile_button))
+    submit_button.bind('<Leave>', lambda button: widget_unhover(submit_button))
 
     pack_page()
