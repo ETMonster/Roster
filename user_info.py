@@ -31,22 +31,24 @@ class User_Login:
         }
 
 class User_Attributes:
-    def __init__(self, gender, age, mbti_test, favorite_music, favorite_movies, hobbies):
+    def __init__(self, gender, preferred_gender, age, mbti_test, favorite_music, favorite_movie, hobby):
         self.gender = gender
+        self.preferred_gender = preferred_gender
         self.age = age
         self.mbti_test = mbti_test
         self.favorite_music = favorite_music
-        self.favorite_movies = favorite_movies
-        self.hobbies = hobbies
+        self.favorite_movie = favorite_movie
+        self.hobby = hobby
 
     def to_dictionary(self):
         return {
             "gender": self.gender,
+            "preferred_gender": self.preferred_gender,
             "age": self.age,
             "mbti_test": self.mbti_test,
             "favorite_music": self.favorite_music,
-            "favorite_movies": self.favorite_movies,
-            "hobbies": self.hobbies
+            "favorite_movie": self.favorite_movie,
+            "hobby": self.hobby
         }
 
 users = []
@@ -66,11 +68,12 @@ def load_users():
             )
             attributes = User_Attributes(
                 user["compatability_attributes"]["gender"],
+                user["compatability_attributes"]["preferred_gender"],
                 user["compatability_attributes"]["age"],
                 user["compatability_attributes"]["mbti_test"],
                 user["compatability_attributes"]["favorite_music"],
-                user["compatability_attributes"]["favorite_movies"],
-                user["compatability_attributes"]["hobbies"]
+                user["compatability_attributes"]["favorite_movie"],
+                user["compatability_attributes"]["hobby"]
             )
             user = User(
                 user["id"],
@@ -99,7 +102,7 @@ def signup(user_login):
     global users
     global current_user
 
-    new_user = User(len(users), None, None, None, user_login, User_Attributes(None, None, None, None, None, None))
+    new_user = User(len(users), None, None, None, user_login, User_Attributes(None, None, None, None, None, None, None))
 
     users.append(new_user)
     login(new_user)

@@ -30,7 +30,26 @@ profile_picture_extensions = [
 ]
 
 gender_options = [
-    'Male', 'Female', 'Prefer not to say',
+    'Male', 'Female', 'Other'
+]
+preferred_gender_options = [
+    'Male', 'Female', 'All'
+]
+
+music_options = [
+    "Alternative", "Blues", "Classical", "Country", "Dance", "Disco", "Electronic", "Folk", "Funk", "Hip Hop",
+    "Jazz", "Metal", "Pop", "Punk", "R&B", "Rap", "Reggae", "Rock", "Soul", "World"
+]
+
+hobby_options = [
+    "Archery", "Baking", "Camping", "Cycling", "Drawing", "Fishing", "Gardening", "Hiking", "Jogging", "Knitting",
+    "Painting", "Photography", "Reading", "Running", "Sculpting", "Sewing", "Swimming", "Traveling", "Woodworking", "Writing"
+]
+
+movie_options = [
+    "Avatar", "Back to the Future", "Casablanca", "Die Hard", "Eternal Sunshine of the Spotless Mind", "Forrest Gump",
+    "Gladiator", "Inception", "Jaws", "Kill Bill", "Lord of the Rings", "Mad Max: Fury Road", "Pulp Fiction",
+    "Schindler's List", "Star Wars", "The Dark Knight", "The Godfather", "The Matrix", "The Shawshank Redemption", "Titanic"
 ]
 
 def widget_hover(widget):

@@ -41,12 +41,41 @@ def create_widgets(window, callback):
 
         upload.grid(row = 1, column = 0, pady = (30, 0))
 
+        age_label.grid(row = 0, column = 0, padx = (0, 5))
+        age_entry.grid(row = 0, column = 1)
+
+        age_frame.grid(row = 2, column = 0, pady = (30, 0))
+
         gender_label.grid(row = 0, column = 0, padx = (0, 5))
+        preferred_gender_label.grid(row = 1, column = 0, padx = (0, 5))
         gender_dropdown.grid(row = 0, column = 1)
+        preferred_gender_dropdown.grid(row = 1, column = 1)
 
-        gender.grid(row = 2, column = 0, pady = (30, 0))
+        gender_frame.grid(row = 3, column = 0, pady = (10, 0))
 
-        body.pack(pady = (30, 0))
+        mbti_label.grid(row = 0, column = 0, padx = (0, 5))
+        mbti_entry.grid(row = 0, column = 1)
+
+        mbti_frame.grid(row = 4, column = 0, pady = (10, 0))
+
+        music_label.grid(row = 0, column = 0, padx = (0, 5))
+        music_dropdown.grid(row = 0, column = 1)
+
+        music_frame.grid(row = 5, column = 0, pady = (20, 0))
+
+        movie_label.grid(row=0, column=0, padx=(0, 5))
+        movie_dropdown.grid(row=0, column=1)
+
+        movie_frame.grid(row=6, column=0, pady=(10, 0))
+
+        hobby_label.grid(row=0, column=0, padx=(0, 5))
+        hobby_dropdown.grid(row=0, column=1)
+
+        hobby_frame.grid(row=7, column=0, pady=(10, 0))
+
+        submit_button.grid(row = 8, column = 0, pady = (30, 0))
+
+        body.pack(pady = (30, 40))
 
         canvas.create_window((window_x // 2, 0), window = canvas_frame, anchor = 'n')
 
@@ -59,7 +88,7 @@ def create_widgets(window, callback):
         # Open file dialog to select an image file
         system_file_path = filedialog.askopenfilename(
             title = 'Select a Profile Picture',
-            filetypes=[('Image Files', ';'.join([x for x in profile_picture_extensions]))]
+            filetypes = [('Image Files', ';'.join([x for x in profile_picture_extensions]))]
         )
 
         if system_file_path:
@@ -75,7 +104,7 @@ def create_widgets(window, callback):
                 destination_file_path = os.path.join(profile_destination, f'{file_name} ({counter}){file_extension}')
                 file_name = f'{file_name} ({counter})'
 
-                counter += 1
+                counter +=  1
 
             try:
                 shutil.copy(system_file_path, destination_file_path)
@@ -108,6 +137,14 @@ def create_widgets(window, callback):
             profile_picture_label.photo = _profile_picture_tkinter_image
 
     def submit():
+        gender = gender_dropdown.get()
+        preferred_gender = preferred_gender_dropdown.get()
+        age = age_entry.get()
+        mbti = mbti_entry.get()
+        favorite_music = music_dropdown.get()
+        favorite_movie = movie_dropdown.get()
+        hobby = hobby_dropdown.get()
+
         callback.change_user_information(
             user_info.User(
                 None,
@@ -142,21 +179,21 @@ def create_widgets(window, callback):
     title_username = Label(text = f'{user_info.current_user.login_information.username}!',
                            master = header, font = (subtitle_font, subtitle_font_size), anchor = 'center')
 
-    horizontal_line_image = PhotoImage(file='images/horizontal_line_512.png')
-    horizontal_line = Label(master=header, image=horizontal_line_image, anchor='center')
+    horizontal_line_image = PhotoImage(file = 'images/horizontal_line_512.png')
+    horizontal_line = Label(master = header, image = horizontal_line_image, anchor = 'center')
     horizontal_line.image = horizontal_line_image
 
     # Body
     name = Frame(master = body)
 
-    first_name_label = Label(text='First Name',
-                                 master=name, font=(body_font, body_font_size), anchor='center')
-    last_name_label = Label(text='Last Name',
-                                 master=name, font=(body_font, body_font_size), anchor='center')
-    first_name_entry = Entry(master=name, width=24, font=(body_font, body_font_size),
-                                 bg=background_color, bd=0, highlightthickness=1, highlightcolor=primary_color)
-    last_name_entry = Entry(master=name, width=24, font=(body_font, body_font_size),
-                                 bg=background_color, bd=0, highlightthickness=1, highlightcolor=primary_color)
+    first_name_label = Label(text = 'First Name',
+                                 master = name, font = (body_font, body_font_size), anchor = 'center')
+    last_name_label = Label(text = 'Last Name',
+                                 master = name, font = (body_font, body_font_size), anchor = 'center')
+    first_name_entry = Entry(master = name, width = 24, font = (body_font, body_font_size),
+                                 bg = background_color, bd = 0, highlightthickness = 1, highlightcolor = primary_color)
+    last_name_entry = Entry(master = name, width = 24, font = (body_font, body_font_size),
+                                 bg = background_color, bd = 0, highlightthickness = 1, highlightcolor = primary_color)
 
     upload = Frame(master = body)
 
@@ -168,25 +205,63 @@ def create_widgets(window, callback):
     profile_picture = Label(master = upload, image = profile_picture_tkinter_image, anchor = 'center')
     profile_picture.image = profile_picture_tkinter_image
 
-    upload_profile_button = Button(text='Upload profile picture',
-                          master=upload, font=(body_font, body_font_size), bg=background_color, bd=0, anchor='center',
-                          cursor='hand2', activebackground=primary_color, command = lambda: upload_profile_picture(profile_picture))
+    upload_profile_button = Button(text = 'Upload profile picture',
+                          master = upload, font = (body_font, body_font_size), bg = background_color, bd = 0, anchor = 'center',
+                          cursor = 'hand2', activebackground = primary_color, command = lambda: upload_profile_picture(profile_picture))
+
+    age_frame = Frame(master = body)
+
+    age_label = Label(text = 'Age',
+                      master = age_frame, font = (body_font, body_font_size), anchor = 'center')
+    age_entry = Entry(master = age_frame, width = 3, font = (body_font, body_font_size),
+                      bg = background_color, bd = 0, highlightthickness = 1, highlightcolor = primary_color)
 
 
-    gender = Frame(master = body)
+    gender_frame = Frame(master = body)
 
-    gender_label = Label(text = 'Gender',
-                         master = gender, font = (body_font, body_font_size), anchor = 'center')
-    gender_dropdown = ttk.Combobox(state = 'normal', values = gender_options,
-        master = gender, style = 'TCombobox')
+    gender_label = Label(text = '     Your gender',
+                         master = gender_frame, font = (body_font, body_font_size), anchor = 'center')
+    gender_dropdown = ttk.Combobox(state = 'readonly', values = gender_options,
+        master = gender_frame, style = 'TCombobox')
+    preferred_gender_label = Label(text = 'Preferred gender',
+                         master = gender_frame, font = (body_font, body_font_size), anchor = 'center')
+    preferred_gender_dropdown = ttk.Combobox(state = 'readonly', values = preferred_gender_options,
+        master = gender_frame, style = 'TCombobox')
 
 
-    gender = Frame(master=body)
+    mbti_frame = Frame(master = body)
 
-    gender_label = Label(text='Gender',
-                         master=gender, font=(body_font, body_font_size), anchor='center')
-    gender_dropdown = ttk.Combobox(state='normal', values=gender_options,
-                                   master=gender, style='TCombobox')
+    mbti_label = Label(text = 'MBTI Test Personality',
+                       master = mbti_frame, font = (body_font, body_font_size), anchor = 'center')
+    mbti_entry = Entry(master = mbti_frame, width = 4, font = (body_font, body_font_size),
+                      bg = background_color, bd = 0, highlightthickness = 1, highlightcolor = primary_color)
+
+
+    music_frame = Frame(master = body)
+
+    music_label = Label(text='Choose a music genre',
+                         master=music_frame, font=(body_font, body_font_size), anchor='center')
+    music_dropdown = ttk.Combobox(state='readonly', values=music_options,
+                                   master=music_frame, style='TCombobox')
+
+    movie_frame = Frame(master=body)
+
+    movie_label = Label(text='Choose a movie',
+                        master=movie_frame, font=(body_font, body_font_size), anchor='center')
+    movie_dropdown = ttk.Combobox(state='readonly', values=movie_options,
+                                  master=movie_frame, style='TCombobox')
+
+    hobby_frame = Frame(master=body)
+
+    hobby_label = Label(text='Choose a hobby',
+                        master=hobby_frame, font=(body_font, body_font_size), anchor='center')
+    hobby_dropdown = ttk.Combobox(state='readonly', values=hobby_options,
+                                  master=hobby_frame, style='TCombobox')
+
+
+    submit_button = Button(text = 'Find your matches!',
+                                 master=body, font=(body_font, body_font_size), bg=background_color, bd=0, anchor='center',
+                                 cursor='hand2', activebackground=primary_color, command=submit)
 
     # Configure actions
 
