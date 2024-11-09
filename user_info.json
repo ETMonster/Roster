@@ -3,7 +3,7 @@
     "id": 0,
     "first_name": "Roster",
     "last_name": "Admin",
-    "profile_picture_path": "/images/profiles/admin.jpg",
+    "profile_picture_path": "images/profiles/admin.jpg",
     "login_information": {
       "username": "admin",
       "password": "password"
@@ -22,7 +22,7 @@
     "id": 1,
     "first_name": "Alice",
     "last_name": "Johnson",
-    "profile_picture_path": "/images/profiles/ajohnson.jpeg",
+    "profile_picture_path": "images/profiles/ajohnson.jpeg",
     "login_information": {
       "username": "ajohnson",
       "password": "alice123"
@@ -41,7 +41,7 @@
     "id": 2,
     "first_name": "Bob",
     "last_name": "Smith",
-    "profile_picture_path": "/images/profiles/bsmith.jpeg",
+    "profile_picture_path": "images/profiles/bsmith.jpeg",
     "login_information": {
       "username": "bsmith",
       "password": "bobpassword"
@@ -60,7 +60,7 @@
     "id": 3,
     "first_name": "Charlie",
     "last_name": "Lee",
-    "profile_picture_path": "/images/profiles/clee.jpeg",
+    "profile_picture_path": "images/profiles/clee.jpeg",
     "login_information": {
       "username": "clee",
       "password": "charlie321"
@@ -79,7 +79,7 @@
     "id": 4,
     "first_name": "Diana",
     "last_name": "King",
-    "profile_picture_path": "/images/profiles/dking.jpeg",
+    "profile_picture_path": "images/profiles/dking.jpeg",
     "login_information": {
       "username": "dking",
       "password": "diana987"
@@ -98,7 +98,7 @@
     "id": 5,
     "first_name": "Evan",
     "last_name": "Taylor",
-    "profile_picture_path": "/images/profiles/etaylor.jpeg",
+    "profile_picture_path": "images/profiles/etaylor.jpeg",
     "login_information": {
       "username": "etaylor",
       "password": "evan456"
@@ -117,7 +117,7 @@
     "id": 6,
     "first_name": "Fiona",
     "last_name": "Brown",
-    "profile_picture_path": "/images/profiles/fbrown.jpeg",
+    "profile_picture_path": "images/profiles/fbrown.jpeg",
     "login_information": {
       "username": "fbrown",
       "password": "fiona111"
@@ -136,7 +136,7 @@
     "id": 7,
     "first_name": "George",
     "last_name": "White",
-    "profile_picture_path": "/images/profiles/gwhite.jpeg",
+    "profile_picture_path": "images/profiles/gwhite.jpeg",
     "login_information": {
       "username": "gwhite",
       "password": "george555"
@@ -155,7 +155,7 @@
     "id": 8,
     "first_name": "Holly",
     "last_name": "Green",
-    "profile_picture_path": "/images/profiles/hgreen.jpeg",
+    "profile_picture_path": "images/profiles/hgreen.jpeg",
     "login_information": {
       "username": "hgreen",
       "password": "holly333"
@@ -174,7 +174,7 @@
     "id": 9,
     "first_name": "Ian",
     "last_name": "Gray",
-    "profile_picture_path": "/images/profiles/igray.jpeg",
+    "profile_picture_path": "images/profiles/igray.jpeg",
     "login_information": {
       "username": "igray",
       "password": "ian888"
@@ -193,7 +193,7 @@
     "id": 10,
     "first_name": "Jenna",
     "last_name": "Morris",
-    "profile_picture_path": "/images/profiles/jmorris.jpeg",
+    "profile_picture_path": "images/profiles/jmorris.jpeg",
     "login_information": {
       "username": "jmorris",
       "password": "jenna444"
@@ -212,7 +212,7 @@
     "id": 11,
     "first_name": "Kevin",
     "last_name": "Hall",
-    "profile_picture_path": "/images/profiles/khall.jpeg",
+    "profile_picture_path": "images/profiles/khall.jpeg",
     "login_information": {
       "username": "khall",
       "password": "kevin123"
@@ -231,7 +231,7 @@
     "id": 12,
     "first_name": "Lily",
     "last_name": "Lewis",
-    "profile_picture_path": "/images/profiles/llewis.jpeg",
+    "profile_picture_path": "images/profiles/llewis.jpeg",
     "login_information": {
       "username": "llewis",
       "password": "lilypass"
@@ -250,7 +250,7 @@
     "id": 13,
     "first_name": "Mason",
     "last_name": "Young",
-    "profile_picture_path": "/images/profiles/myoung.jpeg",
+    "profile_picture_path": "images/profiles/myoung.jpeg",
     "login_information": {
       "username": "myoung",
       "password": "mason789"
@@ -269,7 +269,7 @@
     "id": 14,
     "first_name": "Nina",
     "last_name": "Anderson",
-    "profile_picture_path": "/images/profiles/nanderson.jpeg",
+    "profile_picture_path": "images/profiles/nanderson.jpeg",
     "login_information": {
       "username": "nanderson",
       "password": "nina222"
@@ -288,7 +288,7 @@
     "id": 15,
     "first_name": "Oscar",
     "last_name": "Martinez",
-    "profile_picture_path": "/images/profiles/omartinez.jpeg",
+    "profile_picture_path": "images/profiles/omartinez.jpeg",
     "login_information": {
       "username": "omartinez",
       "password": "oscar555"
@@ -307,7 +307,7 @@
     "id": 16,
     "first_name": "Paula",
     "last_name": "Gonzalez",
-    "profile_picture_path": "/images/profiles/pgonzalez.jpeg",
+    "profile_picture_path": "images/profiles/pgonzalez.jpeg",
     "login_information": {
       "username": "pgonzalez",
       "password": "paula123"
@@ -326,7 +326,7 @@
     "id": 17,
     "first_name": "Quinn",
     "last_name": "Lopez",
-    "profile_picture_path": "/images/profiles/qlopez.jpeg",
+    "profile_picture_path": "images/profiles/qlopez.jpeg",
     "login_information": {
       "username": "qlopez",
       "password": "quinn123"
@@ -345,7 +345,7 @@
     "id": 18,
     "first_name": "Rachel",
     "last_name": "Parker",
-    "profile_picture_path": "/images/profiles/rparker.jpeg",
+    "profile_picture_path": "images/profiles/rparker.jpeg",
     "login_information": {
       "username": "rparker",
       "password": "rachelpass"
@@ -364,7 +364,7 @@
     "id": 19,
     "first_name": "Sam",
     "last_name": "Brooks",
-    "profile_picture_path": "/images/profiles/sbrooks.jpeg",
+    "profile_picture_path": "images/profiles/sbrooks.jpeg",
     "login_information": {
       "username": "sbrooks",
       "password": "sampass"
@@ -383,7 +383,7 @@
     "id": 20,
     "first_name": "Tina",
     "last_name": "Vasquez",
-    "profile_picture_path": "/images/profiles/tvasquez.jpeg",
+    "profile_picture_path": "images/profiles/tvasquez.jpeg",
     "login_information": {
       "username": "tvasquez",
       "password": "tinapass"
@@ -402,7 +402,7 @@
     "id": 21,
     "first_name": "Umar",
     "last_name": "Ali",
-    "profile_picture_path": "/images/profiles/uali.jpeg",
+    "profile_picture_path": "images/profiles/uali.jpeg",
     "login_information": {
       "username": "uali",
       "password": "umarpass"
@@ -421,7 +421,7 @@
     "id": 22,
     "first_name": "Vera",
     "last_name": "Reed",
-    "profile_picture_path": "/images/profiles/vreed.jpeg",
+    "profile_picture_path": "images/profiles/vreed.jpeg",
     "login_information": {
       "username": "vreed",
       "password": "verapass"
@@ -440,7 +440,7 @@
     "id": 23,
     "first_name": "Walter",
     "last_name": "James",
-    "profile_picture_path": "/images/profiles/wjames.jpeg",
+    "profile_picture_path": "images/profiles/wjames.jpeg",
     "login_information": {
       "username": "wjames",
       "password": "walterpass"
@@ -459,7 +459,7 @@
     "id": 24,
     "first_name": "Xena",
     "last_name": "Henderson",
-    "profile_picture_path": "/images/profiles/xhenderson.jpeg",
+    "profile_picture_path": "images/profiles/xhenderson.jpeg",
     "login_information": {
       "username": "xhenderson",
       "password": "xenapass"
@@ -478,7 +478,7 @@
     "id": 25,
     "first_name": "Yasir",
     "last_name": "Iqbal",
-    "profile_picture_path": "/images/profiles/yiqbal.jpeg",
+    "profile_picture_path": "images/profiles/yiqbal.jpeg",
     "login_information": {
       "username": "yiqbal",
       "password": "yasirpass"
@@ -497,7 +497,7 @@
     "id": 26,
     "first_name": "Zara",
     "last_name": "Patel",
-    "profile_picture_path": "/images/profiles/zpatel.jpeg",
+    "profile_picture_path": "images/profiles/zpatel.jpeg",
     "login_information": {
       "username": "zpatel",
       "password": "zaratest"
@@ -516,7 +516,7 @@
     "id": 27,
     "first_name": "Alex",
     "last_name": "Turner",
-    "profile_picture_path": "/images/profiles/aturner.jpeg",
+    "profile_picture_path": "images/profiles/aturner.jpeg",
     "login_information": {
       "username": "aturner",
       "password": "alexpass"
@@ -535,7 +535,7 @@
     "id": 28,
     "first_name": "Bella",
     "last_name": "Knight",
-    "profile_picture_path": "/images/profiles/bknight.jpeg",
+    "profile_picture_path": "images/profiles/bknight.jpeg",
     "login_information": {
       "username": "bknight",
       "password": "bellapass"
@@ -554,7 +554,7 @@
     "id": 29,
     "first_name": "Carlos",
     "last_name": "Hughes",
-    "profile_picture_path": "/images/profiles/chughes.jpeg",
+    "profile_picture_path": "images/profiles/chughes.jpeg",
     "login_information": {
       "username": "chughes",
       "password": "carlospass"
@@ -573,7 +573,7 @@
     "id": 30,
     "first_name": "Dana",
     "last_name": "Woods",
-    "profile_picture_path": "/images/profiles/dwoods.jpeg",
+    "profile_picture_path": "images/profiles/dwoods.jpeg",
     "login_information": {
       "username": "dwoods",
       "password": "danapass"
@@ -592,7 +592,7 @@
     "id": 31,
     "first_name": "Elliot",
     "last_name": "Morgan",
-    "profile_picture_path": "/images/profiles/emorgan.png",
+    "profile_picture_path": "images/profiles/emorgan.jpeg",
     "login_information": {
       "username": "emorgan",
       "password": "elliotpass"
@@ -611,7 +611,7 @@
     "id": 32,
     "first_name": "Fay",
     "last_name": "Evans",
-    "profile_picture_path": "/images/profiles/fevans.png",
+    "profile_picture_path": "images/profiles/fevans.jpeg",
     "login_information": {
       "username": "fevans",
       "password": "faypass"
@@ -630,7 +630,7 @@
     "id": 33,
     "first_name": "Grant",
     "last_name": "Owen",
-    "profile_picture_path": "/images/profiles/gowen.png",
+    "profile_picture_path": "images/profiles/gowen.jpeg",
     "login_information": {
       "username": "gowen",
       "password": "grantpass"
@@ -649,7 +649,7 @@
     "id": 34,
     "first_name": "Hannah",
     "last_name": "Price",
-    "profile_picture_path": "/images/profiles/hprice.png",
+    "profile_picture_path": "images/profiles/hprice.jpeg",
     "login_information": {
       "username": "hprice",
       "password": "hannahpass"
@@ -668,7 +668,7 @@
     "id": 35,
     "first_name": "Isaac",
     "last_name": "Simmons",
-    "profile_picture_path": "/images/profiles/isimmons.png",
+    "profile_picture_path": "images/profiles/isimmons.jpeg",
     "login_information": {
       "username": "isimmons",
       "password": "isaacpass"
@@ -687,7 +687,7 @@
     "id": 36,
     "first_name": "Julia",
     "last_name": "Carson",
-    "profile_picture_path": "/images/profiles/jcarson.png",
+    "profile_picture_path": "images/profiles/jcarson.jpeg",
     "login_information": {
       "username": "jcarson",
       "password": "juliapass"
@@ -706,7 +706,7 @@
     "id": 37,
     "first_name": "Kyle",
     "last_name": "Bennett",
-    "profile_picture_path": "/images/profiles/kbennett.png",
+    "profile_picture_path": "images/profiles/kbennett.jpeg",
     "login_information": {
       "username": "kbennett",
       "password": "kylepass"
@@ -725,7 +725,7 @@
     "id": 38,
     "first_name": "Laura",
     "last_name": "Bishop",
-    "profile_picture_path": "/images/profiles/lbishop.png",
+    "profile_picture_path": "images/profiles/lbishop.jpeg",
     "login_information": {
       "username": "lbishop",
       "password": "laurapass"
@@ -744,7 +744,7 @@
     "id": 39,
     "first_name": "Mark",
     "last_name": "Robinson",
-    "profile_picture_path": "/images/profiles/mrobinson.png",
+    "profile_picture_path": "images/profiles/mrobinson.jpeg",
     "login_information": {
       "username": "mrobinson",
       "password": "markpass"
@@ -763,7 +763,7 @@
     "id": 40,
     "first_name": "Nina",
     "last_name": "Peterson",
-    "profile_picture_path": "/images/profiles/npeterson.png",
+    "profile_picture_path": "images/profiles/npeterson.jpeg",
     "login_information": {
       "username": "npeterson",
       "password": "ninapass"
@@ -782,7 +782,7 @@
     "id": 41,
     "first_name": "Olivia",
     "last_name": "Green",
-    "profile_picture_path": "/images/profiles/ogreen.png",
+    "profile_picture_path": "images/profiles/ogreen.jpeg",
     "login_information": {
       "username": "ogreen",
       "password": "oliviapass"
@@ -801,7 +801,7 @@
     "id": 42,
     "first_name": "Paul",
     "last_name": "Murphy",
-    "profile_picture_path": "/images/profiles/pmurphy.png",
+    "profile_picture_path": "images/profiles/pmurphy.jpeg",
     "login_information": {
       "username": "pmurphy",
       "password": "paulpass"
@@ -820,7 +820,7 @@
     "id": 43,
     "first_name": "Quincy",
     "last_name": "Daniels",
-    "profile_picture_path": "/images/profiles/qdaniels.png",
+    "profile_picture_path": "images/profiles/qdaniels.jpeg",
     "login_information": {
       "username": "qdaniels",
       "password": "quincypass"
@@ -839,7 +839,7 @@
     "id": 44,
     "first_name": "Rebecca",
     "last_name": "Morris",
-    "profile_picture_path": "/images/profiles/rmorris.png",
+    "profile_picture_path": "images/profiles/rmorris.jpeg",
     "login_information": {
       "username": "rmorris",
       "password": "rebeccapass"
@@ -858,7 +858,7 @@
     "id": 45,
     "first_name": "Steven",
     "last_name": "Clark",
-    "profile_picture_path": "/images/profiles/sclark.png",
+    "profile_picture_path": "images/profiles/sclark.jpeg",
     "login_information": {
       "username": "sclark",
       "password": "stevenpass"
@@ -877,7 +877,7 @@
     "id": 46,
     "first_name": "Tara",
     "last_name": "Young",
-    "profile_picture_path": "/images/profiles/tyoung.png",
+    "profile_picture_path": "images/profiles/tyoung.jpeg",
     "login_information": {
       "username": "tyoung",
       "password": "tarapass"
@@ -896,7 +896,7 @@
     "id": 47,
     "first_name": "Ursula",
     "last_name": "White",
-    "profile_picture_path": "/images/profiles/uwhite.png",
+    "profile_picture_path": "images/profiles/uwhite.jpeg",
     "login_information": {
       "username": "uwhite",
       "password": "ursulapass"
@@ -915,7 +915,7 @@
     "id": 48,
     "first_name": "Victor",
     "last_name": "Collins",
-    "profile_picture_path": "/images/profiles/vcollins.png",
+    "profile_picture_path": "images/profiles/vcollins.jpeg",
     "login_information": {
       "username": "vcollins",
       "password": "victorpass"
@@ -934,7 +934,7 @@
     "id": 49,
     "first_name": "Wanda",
     "last_name": "Garcia",
-    "profile_picture_path": "/images/profiles/wgarcia.png",
+    "profile_picture_path": "images/profiles/wgarcia.jpeg",
     "login_information": {
       "username": "wgarcia",
       "password": "wandapass"
@@ -953,7 +953,7 @@
     "id": 50,
     "first_name": "Xander",
     "last_name": "Scott",
-    "profile_picture_path": "/images/profiles/xscott.png",
+    "profile_picture_path": "images/profiles/xscott.jpeg",
     "login_information": {
       "username": "xscott",
       "password": "xanderpass"

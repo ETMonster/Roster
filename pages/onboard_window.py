@@ -6,7 +6,6 @@ import os
 
 from constants import *
 import user_info
-from user_info import current_user, User_Attributes
 from compatibility import MBTI
 
 def create_widgets(window, callback):
@@ -149,6 +148,9 @@ def create_widgets(window, callback):
         if mbti_entry.get() not in MBTI.matrix_indices:
             throw_error('BadMBTI')
             return
+        if len(first_name_entry.get()) > login_maximum_length or len(last_name_entry.get()) > login_maximum_length:
+            throw_error('Length')
+            return
 
         callback.change_user_information(
             user_info.User(
@@ -271,7 +273,8 @@ def create_widgets(window, callback):
 
     submit_button = Button(text = 'Find your matches!',
                                  master=body, font=(body_font, body_font_size), bg=background_color, bd=0, anchor='center',
-                                 cursor='hand2', activebackground=primary_color, command=submit)
+                                 cursor='hand2', activebackground=primary_color, command=submit
+                           )
 
     entries = [
         first_name_entry,

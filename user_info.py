@@ -120,15 +120,13 @@ def signup(user_login):
     global users
     global current_user
 
-    def get_new_user_id(possible_id = 0):
-        for user in users:
-            if user.id == possible_id:
-                possible_id += 1
-                get_new_user_id(possible_id)
+    new_id = 0
 
-        return possible_id
+    for user in users:
+        if user.id == new_id:
+            new_id += 1
 
-    new_user = User(get_new_user_id(), None, None, None, user_login, User_Attributes(None, None, None, None, None, None, None))
+    new_user = User(new_id, None, None, None, user_login, User_Attributes(None, None, None, None, None, None, None))
 
     users.append(new_user)
     login(new_user)

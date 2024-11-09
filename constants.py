@@ -24,6 +24,8 @@ login_prohibited_characters = [
 login_minimum_length = 2
 login_maximum_length = 24
 
+amount_of_matches = 9
+
 profile_destination = 'images/profiles'
 profile_picture_extensions = [
     '*.png', '*.jpg', '*.jpeg'
@@ -67,7 +69,7 @@ def throw_error(reason):
     elif reason == 'Information':
         messagebox.showinfo(title='Error', message='Username or password is incorrect.')
     elif reason == 'Length':
-        messagebox.showinfo(title='Error', message=f'Your username and password must be a minimum of {login_minimum_length} and a maximum of {login_maximum_length} characters long.')
+        messagebox.showinfo(title='Error', message=f'Entries must be a minimum of {login_minimum_length} and a maximum of {login_maximum_length} characters long.')
     elif reason == 'Exists':
         messagebox.showinfo(title='Error', message=f'Your desired username is already in use.')
     elif reason == 'BadProfile':

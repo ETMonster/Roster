@@ -81,15 +81,12 @@ def find_matches(user):
     compatability_scores = []
 
     for compare_user in user_info.users:
-        if user.id == compare_user.id:
+        if user.id == compare_user.id or compare_user.login_information.username == 'admin':
             continue
 
         compatability_score = get_compatability(user, compare_user)
         compatability_scores.append(User_Score(compare_user.id, compatability_score))
 
     compatability_scores = sorted(compatability_scores, key = lambda obj: obj.compatability_score, reverse = True)
-
-    for x in compatability_scores:
-        print(x.user_id, x.compatability_score)
 
     return compatability_scores

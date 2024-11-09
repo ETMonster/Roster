@@ -3,6 +3,7 @@ import pages.window_manager as window_manager
 from tkinter import *
 import user_info
 from constants import *
+from pages.window_manager import match_window
 from user_info import write_users
 
 user_info.load_users()
@@ -12,6 +13,10 @@ window.geometry(f'{window_x}x{window_y}')
 window.title('Roster')
 
 class callback:
+    @staticmethod
+    def start():
+        window_manager.start_window.initiate_window(window, callback)
+
     @staticmethod
     def signup(signup_information):
         user_info.signup(signup_information)
@@ -25,7 +30,7 @@ class callback:
             if value is None:
                 window_manager.onboard_window.initiate_window(window, callback)
 
-        compatibility.find_matches(user)
+        window_manager.match_window.initiate_window(window, callback)
 
     @staticmethod
     def change_user_information(user):
@@ -46,6 +51,8 @@ class callback:
             setattr(user_info.current_user, key, value)
 
         write_users()
+
+        window_manager.match_window.initiate_window(window, callback)
 
 def start_roster():
     window_manager.start_window.initiate_window(window, callback)
