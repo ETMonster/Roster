@@ -1,8 +1,9 @@
+import compatibility
 import pages.window_manager as window_manager
 from tkinter import *
 import user_info
 from constants import *
-from user_info import current_user, write_users
+from user_info import write_users
 
 user_info.load_users()
 
@@ -24,16 +25,17 @@ class callback:
             if value is None:
                 window_manager.onboard_window.initiate_window(window, callback)
 
-        #Home
+        compatibility.find_matches(user)
 
     @staticmethod
     def change_user_information(user):
         for key, value in user.to_dictionary().items():
             if value is None:
-                if key == 'profile_picture_path':
+                if key == 'profile_picture_path' and user_info.current_user.profile_picture_path is None:
                     user_info.current_user.profile_picture_path = 'images/profiles/admin.jpg'
 
                 continue
+
             if key == 'login_information':
                 user_info.current_user.login_information.to_object(value)
                 continue

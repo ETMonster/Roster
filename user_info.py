@@ -67,6 +67,11 @@ class User_Attributes:
 users = []
 current_user = None
 
+def get_user_from_id(user_id):
+    for user in users:
+        if user.id == user_id:
+            return user
+
 def load_users():
     global users
 
@@ -89,7 +94,7 @@ def load_users():
                 user["compatability_attributes"]["hobby"]
             )
             user = User(
-                user["id"],
+                int(user["id"]),
                 user["first_name"],
                 user["last_name"],
                 user["profile_picture_path"],
@@ -115,7 +120,15 @@ def signup(user_login):
     global users
     global current_user
 
-    new_user = User(len(users), None, None, None, user_login, User_Attributes(None, None, None, None, None, None, None))
+    def get_new_user_id(possible_id = 0):
+        for user in users:
+            if user.id == possible_id:
+                possible_id += 1
+                get_new_user_id(possible_id)
+
+        return possible_id
+
+    new_user = User(get_new_user_id(), None, None, None, user_login, User_Attributes(None, None, None, None, None, None, None))
 
     users.append(new_user)
     login(new_user)

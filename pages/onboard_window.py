@@ -7,7 +7,7 @@ import os
 from constants import *
 import user_info
 from user_info import current_user, User_Attributes
-from compatibility import mbti
+from compatibility import MBTI
 
 def create_widgets(window, callback):
     combobox_style = ttk.Style(window)
@@ -146,7 +146,7 @@ def create_widgets(window, callback):
         if not age_entry.get().isdigit():
             throw_error('BadAge')
             return
-        if mbti_entry.get() not in mbti.matrix_indices:
+        if mbti_entry.get() not in MBTI.matrix_indices:
             throw_error('BadMBTI')
             return
 

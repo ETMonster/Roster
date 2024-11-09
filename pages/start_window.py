@@ -48,7 +48,6 @@ def create_widgets(window, callback):
                 return
 
         for user in user_info.users:
-            print(vars(user))
             if attempt_login_information.username == user.login_information.username and attempt_login_information.password == user.login_information.password:
                 callback.login(user)
                 return
